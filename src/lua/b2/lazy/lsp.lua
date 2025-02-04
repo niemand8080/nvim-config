@@ -1,11 +1,9 @@
 return {
     'neovim/nvim-lspconfig',
-    dependencis = {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/nvim-cmp',
-        { 'williamboman/mason.nvim', build = ":MasonUpdate" },
-        "williamboman/mason-lspconfig.nvim",
-    },
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/nvim-cmp',
+    { 'williamboman/mason.nvim', build = ":MasonUpdate" },
+    "williamboman/mason-lspconfig.nvim",
     config = function()
         -- Reserve a space in the gutter
         vim.opt.signcolumn = 'yes'
