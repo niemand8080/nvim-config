@@ -1,6 +1,7 @@
 # Nvim Config
 
 Run this to update the neovim config.
+It is recomendet to NOT change the variables.
 
 ```bash
 #!/bin/bash
@@ -12,7 +13,7 @@ REPO_DIR="$HOME/.vim/config/nvim-config"
 OLD_CONFIG_DIR="$HOME/.vim/config/old"
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
 
-mkdir -p "$HOME/.vim"
+mkdir -p "$HOME/.vim/config/old"
 
 if [[ ! -d "$REPO_DIR" ]]; then
     echo "Cloning neovim config repository"
@@ -25,7 +26,7 @@ else
     git fetch origin
 
     # Check for updates
-    if git staus -uno | grep -q "Your branch is behind"; then
+    if git status -uno | grep -q "Your branch is behind"; then
         echo "Updated found. Pulling latest changes"
         git pull origin "$BRANCH"
     else 
