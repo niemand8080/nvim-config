@@ -36,7 +36,7 @@ else
 fi
 
 echo "Syncing neovim config..."
-rsync -av --delete "$REPO_DIR/src" "$NVIM_CONFIG_DIR/"
+rsync -av --delete "$REPO_DIR/src/" "$NVIM_CONFIG_DIR/"
 
 echo "Successfully updated neovim config!"
 ```
