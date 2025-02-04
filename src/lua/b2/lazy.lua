@@ -23,7 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        -- add your plugins here
         {
             "nvim-telescope/telescope.nvim",
             tag = "0.1.8",
@@ -43,11 +42,11 @@ require("lazy").setup({
         { 'hrsh7th/nvim-cmp' },
         {
             "williamboman/mason.nvim",
-
             build = ":MasonUpdate"
         },
         {
             "williamboman/mason-lspconfig.nvim",
         },
+        { "tpope/vim-fugitive" }
     },
 })
