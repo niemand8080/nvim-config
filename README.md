@@ -40,3 +40,7 @@ rsync -av --delete "$REPO_DIR/src/" "$NVIM_CONFIG_DIR/"
 
 echo "Successfully updated neovim config!"
 ```
+
+## Trubelshooting
+
+Make sure you have installed npm and a C compiler like gcc.
