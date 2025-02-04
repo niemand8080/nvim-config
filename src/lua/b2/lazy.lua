@@ -47,6 +47,7 @@ require("lazy").setup({
         {
             "williamboman/mason-lspconfig.nvim",
         },
-        { "tpope/vim-fugitive" }
+        { "tpope/vim-fugitive" },
+        { 'ThePrimeagen/vim-be-good' }
     },
 })
