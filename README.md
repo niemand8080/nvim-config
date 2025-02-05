@@ -20,7 +20,8 @@ Also make sure that you have ripgrep installed.
 ```
 rg --version
 ```
-Install ripgrep with:
+#### Install ripgrep with:
+
 Homebew
 ```
 brew install ripgrep
