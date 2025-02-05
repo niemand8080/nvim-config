@@ -1,7 +1,30 @@
 # Nvim Config
 
+## Instalation
+
 Run this to update the neovim config.
-It is recomendet to NOT change the variables.
+
+Make sure you have npm installed, so [Mason](https://github.com/williamboman/mason.nvim) can install LSP's.
+
+```
+npm --version
+```
+
+Also make sure that you have ripgrep installed.
+
+```
+rp --version
+```
+Install ripgrep with:
+Homebew
+```
+brew install ripgrep
+```
+
+apt
+```
+sudo apt-get install ripgrep
+```
 
 ```bash
 #!/bin/bash

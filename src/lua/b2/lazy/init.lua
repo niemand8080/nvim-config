@@ -1,4 +1,5 @@
 return {
     { "nvim-lua/plenary.nvim" },
-    { 'ThePrimeagen/vim-be-good' }
+    { 'nvim-telescope/telescope-fzf-native.nvim' },
+    { 'ThePrimeagen/vim-be-good' },
 }
