@@ -74,6 +74,33 @@ rsync -av --delete "$REPO_DIR/src/" "$NVIM_CONFIG_DIR/"
 echo "Successfully updated neovim config!"
 ```
 
-## Trubelshooting
+## Troubleshooting
 
 Make sure you have installed npm and a C compiler like gcc.
+
+If you have an error like this:
+
+```error
+Failed to run config for telescope.nvim
+
+...m/lazy/telescope.nvim/lua/telescope/_extensions/init.lua:10: 'fzf' extension doesn't exist or isn't installed: ...
+hare/nvim/lazy/telescope-fzf-native.nvim/lua/fzf_lib.lua:11: /home/niemand/.local/share/nvim/lazy/telescope-fzf-nativ
+e.nvim/lua/../build/libfzf.so: cannot open shared object file: No such file or directory
+
+# stacktrace:
+  - /telescope.nvim/lua/telescope/_extensions/init.lua:10 _in_ **load_extension**
+  - /telescope.nvim/lua/telescope/_extensions/init.lua:62 _in_ **load_extension**
+  - ~/.config/nvim/lua/b2/lazy/telescope.lua:26 _in_ **config**
+  - ~/.config/nvim/lua/b2/init_lazy.lua:19
+  - ~/.config/nvim/lua/b2/init.lua:2
+  - ~/.config/nvim/init.lua:1
+```
+
+You may have to compile the fzf by doing the following:
+
+```
+cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
+
+# Compile
+make
+```
