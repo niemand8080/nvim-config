@@ -20,7 +20,7 @@ return {
         -- Mason setup to install and manage LSP servers
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "html", "cssls", "jsonls", "ts_ls", "lua_ls" }, -- Add more as needed
+            ensure_installed = { "html", "cssls", "jsonls", "ts_ls", "lua_ls", "bashls" }, -- Add more as needed
             automatic_installation = true,                                       -- Automatically install if not present
             handlers = {
                 function(server_name)                                            -- Default handler for most servers
