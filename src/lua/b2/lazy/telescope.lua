@@ -4,7 +4,6 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-fzf-native.nvim",
-        "niemand8080/remote-ssh.nvim",
     },
     default = {
         file_ignore_patterns = {
@@ -25,33 +24,8 @@ return {
         })
 
         require("telescope").load_extension('fzf')
-        require('telescope').load_extension('remote-ssh')
-
-        -- Remote SSH 
-        local api = require('remote-ssh.api')
-        vim.keymap.set('n', '<leader>rc', api.connect, {})
-        vim.keymap.set('n', '<leader>rd', api.disconnect, {})
-        vim.keymap.set('n', '<leader>re', api.edit, {})
 
         local builtin = require("telescope.builtin")
-        local connections = require("remote-ssh.connections")
-        vim.keymap.set("n", "<leader>ff", function()
-            if connections.is_connected then
-                api.find_files()
-            else
-                print("Not connncted")
-                -- builtin.find_files()
-            end
-        end, {})
-        vim.keymap.set("n", "<leader>fg", function()
-            if connections.is_connected then
-                api.live_grep()
-            else
-                print("Not connncted")
-                -- builtin.live_grep()
-            end
-        end, {})
-
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
         vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
         vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
