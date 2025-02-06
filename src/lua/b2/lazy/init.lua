@@ -3,11 +3,11 @@ return {
     { "nvim-lua/plenary.nvim" },
     { 'nvim-telescope/telescope-fzf-native.nvim' },
     {
-        "nosduco/remote-sshfs.nvim",
+        "niemand8080/remote-ssh.nvim",
         dependencies = { "nvim-telescope/telescope.nvim" },
         pin = true,
         config = function()
-            require("remote-sshfs").setup({
+            require("remote-ssh").setup({
                 log = {
                     enable = true
                 }
