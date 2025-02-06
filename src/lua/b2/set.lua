@@ -11,7 +11,7 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.swapfile = true
+vim.opt.swapfile = false
 vim.opt.directory = os.getenv("HOME") .. "/.vim/tmp/swap//" -- Custom swap file location
 
 vim.opt.backup = true
