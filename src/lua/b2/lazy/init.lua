@@ -1,4 +1,6 @@
 return {
+    -- For nvim-tree
+    { "nvim-tree/nvim-web-devicons" },
     -- For telescope
     { "nvim-lua/plenary.nvim" },
     { 'nvim-telescope/telescope-fzf-native.nvim' },
@@ -10,4 +12,3 @@ return {
     { 'hrsh7th/nvim-cmp' },
     { "williamboman/mason-lspconfig.nvim" },
 }
-

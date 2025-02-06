@@ -4,7 +4,11 @@
 
 Run this to update the neovim config.
 
-### NPM
+### Requirements
+
+[neovim >=0.9.0](https://github.com/neovim/neovim/wiki/)
+
+#### NPM
 
 Make sure you have npm installed, so [Mason](https://github.com/williamboman/mason.nvim) can install LSP's.
 
@@ -14,13 +18,14 @@ npm --version
 
 To install npm visit the [NodeJs](https://nodejs.org/en/download) website.
 
-### Ripgrep
+#### Ripgrep
+
 Also make sure that you have ripgrep installed.
 
 ```
 rg --version
 ```
-#### Install ripgrep with:
+##### Install ripgrep with:
 
 Homebew
 ```
@@ -30,6 +35,29 @@ brew install ripgrep
 apt
 ```
 sudo apt-get install ripgrep
+```
+
+#### Nerd Fonts
+
+[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) is optional and used to display file icons. It requires a [nerd font](https://www.nerdfonts.com/). Your terminal emulator must be configured to use that font, usually "Hack Nerd Font"
+
+##### Install Nerdfonts
+
+Homebrew
+
+```
+brew install --cask font-hack-nerd-font
+```
+
+Apt
+
+```
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+wget -O "Hack.zip" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip"
+unzip Hack.zip
+rm Hack.zip
+fc-cache -fv
 ```
 
 ### Update Script
