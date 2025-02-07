@@ -39,7 +39,7 @@ sudo apt-get install ripgrep
 
 #### Nerd Fonts
 
-[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) is optional and used to display file icons. It requires a [nerd font](https://www.nerdfonts.com/). Your terminal emulator must be configured to use that font, usually "Hack Nerd Font"
+[Nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is optional. It uses [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) which is optional too and used to display file icons. It requires a [nerd font](https://www.nerdfonts.com/). Your terminal emulator must be configured to use that font, usually "Hack Nerd Font"
 
 ##### Install Nerdfonts
 
