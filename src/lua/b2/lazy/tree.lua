@@ -7,13 +7,13 @@ return {
             'b0o/nvim-tree-preview.lua',
             dependencies = {
                 'nvim-lua/plenary.nvim',
-                '3rd/image.nvim', -- Optional, for previewing images
+                -- '3rd/image.nvim', -- Optional, for previewing images
             },
-            config = {
-                image_preview = {
-                    enabled = true,
-                }
-            }
+            -- config = {               -- Uncomment this too for image support
+            --     image_preview = {    -- Also read the README on github...
+            --         enabled = true,
+            --     }
+            -- }
         },
     },
     config = function()

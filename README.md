@@ -132,3 +132,7 @@ cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
 # Compile
 make
 ```
+
+## Image support
+
+To support image follow the guide [here](https://github.com/3rd/image.nvim).
