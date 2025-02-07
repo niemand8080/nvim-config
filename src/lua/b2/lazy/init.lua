@@ -1,4 +1,6 @@
 return {
+    -- Status bar
+    { 'famiu/feline.nvim' },
     -- For nvim-tree
     { "nvim-tree/nvim-web-devicons" },
     { 'b0o/nvim-tree-preview.lua'},
