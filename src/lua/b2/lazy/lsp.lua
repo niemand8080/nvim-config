@@ -6,6 +6,9 @@ return {
         'neovim/nvim-lspconfig',
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/nvim-cmp',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
     },
     config = function()
         -- Reserve a space in the gutter
@@ -24,9 +27,9 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = { "html", "cssls", "jsonls", "ts_ls", "lua_ls", "bashls" }, -- Add more as needed
-            automatic_installation = true,                                       -- Automatically install if not present
+            automatic_installation = true,                                                 -- Automatically install if not present
             handlers = {
-                function(server_name)                                            -- Default handler for most servers
+                function(server_name)                                                      -- Default handler for most servers
                     require("lspconfig")[server_name].setup({
                         capabilities = lspconfig_defaults.capabilities
                     })
@@ -73,39 +76,61 @@ return {
 
         -- nvim-cmp setup for autocompletion
         local cmp = require('cmp')
-        local cmp_select = { behavior = cmp.SelectBehavior.Insert }
         cmp.setup({
             snippet = {
                 expand = function(args)
                     vim.snippet.expand(args.body) -- Requires Neovim v0.10+
                 end,
             },
-            mapping = {
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<C-Space>'] = cmp.mapping.complete(),
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
+            mapping = cmp.mapping.preset.insert(),
+            sources = {
+                { name = 'nvim_lsp' },
+                { name = 'buffer' },
+            },
+        })
 
+        -- cmpline comp
+        cmp.setup.cmdline(':', {
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
+            sources = cmp.config.sources({
+                { name = 'path' },
+                { name = 'cmdline_history' },
+                { name = 'cmdline' },
+            }),
+            mapping = cmp.mapping.preset.cmdline(),
+            formatting = {
+                fields = { 'abbr', 'kind' },
+            }
+        })
+
+        -- search comp
+        cmp.setup.cmdline('/', {
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        cmp.setup({
+            mapping = {
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
                     else
                         fallback()
                     end
-                end, { "i", "s" }),
-
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    else
-                        fallback()
-                    end
-                end, { "i", "s" }),
-            },
-            sources = {
-                { name = 'nvim_lsp' },
-                { name = 'buffer' },
-            },
+                end, { "i", "s", "c" }),
+            }
         })
     end
 }

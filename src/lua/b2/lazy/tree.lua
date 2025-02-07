@@ -1,4 +1,5 @@
 return {
+    cond = false, -- To turn on nvim tree set this to true
     "nvim-tree/nvim-tree.lua",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
@@ -8,14 +9,29 @@ return {
                 'nvim-lua/plenary.nvim',
                 '3rd/image.nvim', -- Optional, for previewing images
             },
+            config = {
+                image_preview = {
+                    enabled = true,
+                }
+            }
         },
     },
     config = function()
+        vim.g.nvim_tree_side = "right"
+        -- Turn netrw off
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
         require('nvim-tree').setup {
             on_attach = function(bufnr)
                 local api = require('nvim-tree.api')
 
-                vim.keymap.set('n', '<leader>pt', api.tree.open)
+                vim.keymap.set('n', '<leader>pt', function()
+                    if api.tree.is_visible then
+                        api.tree.close()
+                    else
+                        api.tree.open()
+                    end
+                end)
                 api.config.mappings.default_on_attach(bufnr)
 
                 local function opts(desc)
@@ -47,4 +63,3 @@ return {
         }
     end
 }
-

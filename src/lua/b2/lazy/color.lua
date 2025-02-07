@@ -11,20 +11,35 @@ function Color(color)
     vim.cmd.colorscheme(color)
 
     change_color_opts("Normal", { bg = "none" })
+    change_color_opts("Title", { bg = "none" })
     change_color_opts("NormalFloat", { bg = "none" })
+    change_color_opts("FloatBorder", { bg = "none" })
     change_color_opts("NormalNC", { bg = "none" })
+    change_color_opts("Visual", { blend = 50 })
+    change_color_opts("SignColumn", { bg = "none" })
+    change_color_opts("FoldColumn", { bg = "none" })
+    change_color_opts("WinSeparator", { bg = "none", fg = "gray", blend = 50 })
+    -- LSP auto complete
+    change_color_opts("Pmenu", { blend = 15, fg = "gray" })
+    change_color_opts("PmenuSbar", { bg = "none" })
+    change_color_opts("PmenuThumb", { blend = 50 })
+    -- nvim tree
     change_color_opts("NvimTreeNormal", { bg = "none" })
     change_color_opts("NvimTreeNormalNC", { bg = "none" })
-    change_color_opts("Visual", { blend = 50 })
-    change_color_opts("Pmenu", { blend = 15 })
-    change_color_opts("PmenuSBar", { blend = 25 })
+    change_color_opts("NvimTreeNormalFloat", { bg = "none" })
+    change_color_opts("NvimTreeWinSeparator", { bg = "none", fg = "gray", blend = 50 })
+    -- telescope
+    change_color_opts("TelescopeNormal", { bg = "none" })
+    change_color_opts("TelescopeBorder", { bg = "none" })
+    change_color_opts("TelescopePromptBorder", { bg = "none" })
+    change_color_opts("TelescopePromptTitle", { bg = "none" })
 end
 
 return {
     {
         "rose-pine/neovim",
         config = function()
-            -- Color()
+            -- Color('rose-pine-moon')
         end
     },
     {
@@ -32,7 +47,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            Color('tokyonight')
+            Color('tokyonight-night')
         end,
     },
     {
@@ -55,4 +70,3 @@ return {
         end,
     },
 }
-
