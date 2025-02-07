@@ -32,7 +32,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            -- Color('tokyonight')
+            Color('tokyonight')
         end,
     },
     {
@@ -49,7 +49,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            Color('lavi')
+            -- Color('lavi')
 
             vim.api.nvim_set_hl(0, "Comment", { fg = "#7E7490" })
         end,
