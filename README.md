@@ -1,5 +1,9 @@
 # Nvim Config
 
+
+!!! If you want the most up to date nvim config got to my [dotconfig](https://github.com/niemand8080/dotconfig) repository.
+
+
 ## Instalation
 
 Run this to update the neovim config.
